@@ -35,7 +35,8 @@
         <label>
             <input tupe="checkbox" class="check-pages" value="pages" data-precio="7000">
             Pages
-        </label>       
+        </label>
+        <div class="total">Total: <span id="total">0</span></div>       
     </div>
     <div class="footer">
         <div class="year">2026 Derechos reservados</div>
@@ -58,6 +59,34 @@
         {
             console.log("Hosting no seleccionado");
         }
+        //total
+        document.querySelector("total").textContent = total;
+    });
+    dominio.addEventListener('click', function(){
+        if(dominio.checked)
+        {
+            total += Number(dominio.dataset.precio);
+            console.log("Dominio seleccionado");
+        }
+        else
+        {
+            console.log("Dominio no seleccionado");
+        }
+        //total
+        document.querySelector("total").textContent = total;
+    });
+    pages.addEventListener('click', function(){
+        if(pages.checked)
+        {
+            total += Number(pages.dataset.precio);
+            console.log("Pages seleccionado");
+        }
+        else
+        {
+            console.log("Pages no seleccionado");
+        }
+        //total
+        document.querySelector("total").textContent = total;
     });
 
     //pruebas
