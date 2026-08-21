@@ -23,18 +23,48 @@
 
     </div>
     <div class="container">
-        Formulario de cotización
+        Cotización Web
         <br><br>
         <label for="dominio">Dominio:
-            <input class="form-check-input" type="checkbox" id="dominio" name="dominio">
+            <input class="form-check-input" type="checkbox" id="dominio" name="dominio" data-precio="600">
         </label>
         <br><br>
         <label for="hosting">Hosting:
-            <input class="form-check-input" type="checkbox" id="hosting" name="hosting">
-        </label>        
+            <input class="form-check-input" type="checkbox" id="hosting" name="hosting" data-precio="1500">
+        </label> 
+        <label>
+            <input tupe="checkbox" class="check-pages" value="pages" data-precio="7000">
+            Pages
+        </label>       
     </div>
     <div class="footer">
-        2026 Derechos reservados
-    </div>    
+        <div class="year">2026 Derechos reservados</div>
+        <div class="uvaq-dev">Desarrollado por Uvaq</div>
+    </div> 
+<script>
+    const dominio=document.querySelector('#dominio');
+    const hosting=document.querySelector('#hosting');
+    const pages=document.querySelector('.check-pages');
+    var total=0;
+
+    //Evento click para hosting
+    hosting.addEventListener('click', function(){
+        if(hosting.checked)
+        {
+            total += Number(hosting.dataset.precio);
+            console.log("Hosting seleccionado");
+        }
+        else
+        {
+            console.log("Hosting no seleccionado");
+        }
+    });
+
+    //pruebas
+    console.log(dominio.dataset.precio +"," + hosting.dataset.precio);
+    // a number
+    console.log(Number(dominio.dataset.precio) + Number(hosting.dataset.precio));
+
+</script>   
 </body>
 </html>
