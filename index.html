@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador-Web</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -12,12 +13,14 @@
 
     <div id="elemento2" class="elemento">Contenido del elemento 2</div> -->
     <div class="header">
-        <div class="logo">Logo</div>
-        <div class="menu-nav">
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Contactos</a></li>
+        <div class="logo">
+            <h1>Cotizador Web</h1>
+        </div>
+        <div>
+            <ul class="menu-nav">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contactos.html">Contactos</a></li>
             </ul>
         </div>
 
@@ -33,7 +36,7 @@
             <input class="form-check-input" type="checkbox" id="hosting" name="hosting" data-precio="1500">
         </label> 
         <label>
-            <input tupe="checkbox" class="check-pages" value="pages" data-precio="7000">
+            <input type="checkbox" class="check-pages" value="pages" data-precio="7000">
             Pages
         </label>
         <div class="total">Total: <span id="total">0</span></div>       
@@ -48,7 +51,6 @@
     const pages=document.querySelector('.check-pages');
     var total=0;
 
-    //Evento click para hosting
     hosting.addEventListener('click', function(){
         if(hosting.checked)
         {
@@ -59,7 +61,6 @@
         {
             console.log("Hosting no seleccionado");
         }
-        //total
         document.querySelector("total").textContent = total;
     });
     dominio.addEventListener('click', function(){
@@ -72,7 +73,6 @@
         {
             console.log("Dominio no seleccionado");
         }
-        //total
         document.querySelector("total").textContent = total;
     });
     pages.addEventListener('click', function(){
@@ -85,13 +85,11 @@
         {
             console.log("Pages no seleccionado");
         }
-        //total
         document.querySelector("total").textContent = total;
     });
 
-    //pruebas
     console.log(dominio.dataset.precio +"," + hosting.dataset.precio);
-    // a number
+
     console.log(Number(dominio.dataset.precio) + Number(hosting.dataset.precio));
 
 </script>   
