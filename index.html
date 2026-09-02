@@ -1,97 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cotizador-Web</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cotizador de sitio web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caacupe+One&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!--     <h1>Hola Mundo</h1> -->
-<!--     <div id="elemento1" class="elemento">Contenido del elemento 1</div>
-
-    <div id="elemento2" class="elemento">Contenido del elemento 2</div> -->
-    <div class="header">
-        <div class="logo">
-            <h1>Cotizador Web</h1>
-        </div>
-        <div>
-            <ul class="menu-nav">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="contactos.html">Contactos</a></li>
-            </ul>
-        </div>
-
-    </div>
+  <nav class="navcw">
     <div class="container">
-        Cotización Web
-        <br><br>
-        <label for="dominio">Dominio:
-            <input class="form-check-input" type="checkbox" id="dominio" name="dominio" data-precio="600">
-        </label>
-        <br><br>
-        <label for="hosting">Hosting:
-            <input class="form-check-input" type="checkbox" id="hosting" name="hosting" data-precio="1500">
-        </label> 
-        <label>
-            <input type="checkbox" class="check-pages" value="pages" data-precio="7000">
-            Pages
-        </label>
-        <div class="total">Total: <span id="total">0</span></div>       
+      <h1 class="navcw__logo">Cotizador</h1>
     </div>
-    <div class="footer">
-        <div class="year">2026 Derechos reservados</div>
-        <div class="uvaq-dev">Desarrollado por Uvaq</div>
-    </div> 
-<script>
-    const dominio=document.querySelector('#dominio');
-    const hosting=document.querySelector('#hosting');
-    const pages=document.querySelector('.check-pages');
-    var total=0;
+    <ul class="navcw__menu">
+      <li class="navcw__item"><a href="index.html" class="navcw__link">Inicio</a></li>
+      <li class="navcw__item"><a href="servicios.html" class="navcw__link">Servicios</a></li>
+      <li class="navcw__item"><a href="contacto.html" class="navcw__link">Contacto</a></li>
+    </ul>
+  </nav>
 
-    hosting.addEventListener('click', function(){
-        if(hosting.checked)
-        {
-            total += Number(hosting.dataset.precio);
-            console.log("Hosting seleccionado");
-        }
-        else
-        {
-            console.log("Hosting no seleccionado");
-        }
-        document.querySelector("total").textContent = total;
-    });
-    dominio.addEventListener('click', function(){
-        if(dominio.checked)
-        {
-            total += Number(dominio.dataset.precio);
-            console.log("Dominio seleccionado");
-        }
-        else
-        {
-            console.log("Dominio no seleccionado");
-        }
-        document.querySelector("total").textContent = total;
-    });
-    pages.addEventListener('click', function(){
-        if(pages.checked)
-        {
-            total += Number(pages.dataset.precio);
-            console.log("Pages seleccionado");
-        }
-        else
-        {
-            console.log("Pages no seleccionado");
-        }
-        document.querySelector("total").textContent = total;
-    });
+  <div class="window">
+    <div class="window-header">
+        <div 
+    </div>
+  </div>
 
-    console.log(dominio.dataset.precio +"," + hosting.dataset.precio);
+  <main class="contenedor-principal">
+    <div class="encabezado-cotizador">
+      <span class="etiqueta-intro">PROYECTO INTRODUCTORIO</span>
+      <h2 class="titulo-principal">Cotizador de sitio web</h2>
+      <p class="descripcion">Completa el formulario para generar una cotización estimada.</p>
+    </div>
 
-    console.log(Number(dominio.dataset.precio) + Number(hosting.dataset.precio));
+    <div class="columnas">
+      <div class="tarjeta tarjeta-formulario">
+        <div class="campo">
+          <label>Nombre del cliente</label>
+          <input type="text" placeholder="Ej. Ana López">
+        </div>
 
-</script>   
+        <div class="campo">
+          <label>Número de páginas</label>
+          <input type="number" placeholder="Ej. 5">
+          <span class="nota">Cada página tiene un costo de $500 MXN.</span>
+        </div>
+
+        <div class="campo">
+          <label>Servicios adicionales</label>
+          
+          <div class="opcion-servicio">
+            <div>
+              <input type="checkbox" checked>
+              <label>Dominio</label>
+            </div>
+            <span class="precio">$350</span>
+          </div>
+
+          <div class="opcion-servicio">
+            <div>
+              <input type="checkbox" checked>
+              <label>Hosting</label>
+            </div>
+            <span class="precio">$1,200</span>
+          </div>
+
+          <div class="opcion-servicio">
+            <div>
+              <input type="checkbox">
+              <label>Base de datos</label>
+            </div>
+            <span class="precio">$800</span>
+          </div>
+        </div>
+
+        <div class="botones">
+          <button class="btn-azul">Calcular cotización</button>
+          <button class="btn-gris">Limpiar</button>
+        </div>
+      </div>
+
+      <!-- Derecha: Resultado -->
+      <div class="tarjeta tarjeta-resultado">
+        <span class="etiqueta-resultado">RESULTADO</span>
+        <h3 class="titulo-resultado">Aún no hay cotización</h3>
+        <p class="texto-resultado">Ingresa los datos del cliente y selecciona los servicios.</p>
+      </div>
+      
+    </div>
+    
+  </main>
+
 </body>
+    <script>
+        var window =document.querySelector('.window');
+        window.classList.add('.show');
+        //.remove('.show');
+        
+    </script>
 </html>

@@ -1,5 +1,212 @@
-h1{
-    font-size: 40px;
-    color: #FF0000;
-    background: #0000;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #ebedf0;
+  color: #777e8d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.navcw {
+  width: 100%;
+  background-color: #2b1c9d;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+}
+
+.navcw .container h1 {
+  font-family: "Caacupe One", sans-serif;
+  font-size: 35px;
+  color: #f5f5f7;
+}
+
+.navcw__menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navcw__link {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000307;
+  transition: color 0.2s ease;
+}
+
+.navcw__link:hover {
+  color: #00050f;
+}
+
+/* ================= CONTENEDOR PRINCIPAL ================= */
+.contenedor-principal {
+  max-width: 900px;
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.etiqueta-intro,
+.subtitulo-etiqueta {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #3b82f6;
+  margin-bottom: 6px;
+}
+
+.contenedor-principal h1,
+.titulo {
+  font-size: 36px;
+  color: #111827;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.descripcion {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 30px;
+}
+
+/* ================= COLUMNAS (FLEXBOX) ================= */
+.columnas,
+.columnas-cotizador {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.tarjeta {
+  flex: 1;
+  padding: 24px;
+  border-radius: 14px;
+}
+
+.tarjeta-formulario {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+.tarjeta-resultado {
+  background-color: #f0f4f9;
+  border: 1px solid #e2e8f0;
+}
+
+.tarjeta-resultado .subtitulo-etiqueta,
+.tarjeta-resultado .etiqueta-resultado {
+  color: #4b5563;
+}
+
+.titulo-resultado {
+  font-size: 20px;
+  color: #0f172a;
+  font-weight: 700;
+  margin: 6px 0 16px 0;
+}
+
+.texto-resultado {
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* ================= FORMULARIO (FLEXBOX VERTICAL) ================= */
+.campo {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.campo input[type="text"],
+.campo input[type="number"] {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-size: 14px;
+  color: #1e293b;
+  outline: none;
+}
+
+.nota {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 5px;
+}
+
+/* ================= CHECKBOXES (FLEXBOX HORIZONTAL) ================= */
+.opcion-servicio,
+.opcion-checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.opcion-servicio div,
+.opcion-checkbox div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.opcion-servicio label,
+.opcion-checkbox label {
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0;
+  color: #1f2937;
+}
+
+.precio {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* ================= BOTONES ================= */
+.botones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.botones button,
+.btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-azul {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.btn-gris {
+  background-color: #e2e8f0;
+  color: #1e293b;
 }
