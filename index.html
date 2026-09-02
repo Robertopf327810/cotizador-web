@@ -4,100 +4,229 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cotizador de sitio web</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caacupe+One&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav class="navcw">
-    <div class="container">
-      <h1 class="navcw__logo">Cotizador</h1>
-    </div>
-    <ul class="navcw__menu">
-      <li class="navcw__item"><a href="index.html" class="navcw__link">Inicio</a></li>
-      <li class="navcw__item"><a href="servicios.html" class="navcw__link">Servicios</a></li>
-      <li class="navcw__item"><a href="contacto.html" class="navcw__link">Contacto</a></li>
-    </ul>
-  </nav>
+  <!-- Barra de Navegación -->
+  <header>
+    <nav class="menu-nav">
+      <div class="logo-container">
+        <h1>Cotizador</h1>
+      </div>
+      <div class="nav-list">
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Servicios</a></li>
+          <li><a href="#"><span id="contact-link">Contacto</span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-  <div class="window">
-    <div class="window-header">
-        <div 
+  <!-- Ventana Modal -->
+  <div class="window not-show">
+    <div class="window-card">
+      <div class="window-header">
+        <div>
+          <p id="modal-title">Aviso</p>
+        </div>
+        <div>
+          <button type="button" id="window-close">X</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <p id="modal-message">Mensaje del sistema</p>
+        <button type="button" id="window-ok">OK</button>
+      </div>
     </div>
   </div>
 
+  <!-- Contenido Principal -->
   <main class="contenedor-principal">
-    <div class="encabezado-cotizador">
-      <span class="etiqueta-intro">PROYECTO INTRODUCTORIO</span>
-      <h2 class="titulo-principal">Cotizador de sitio web</h2>
+    
+    <div class="titles">
+      <span class="subtitulo-etiqueta">PROYECTO INTRODUCTORIO</span>
+      <h1>Cotizador de sitio web</h1>
       <p class="descripcion">Completa el formulario para generar una cotización estimada.</p>
     </div>
 
-    <div class="columnas">
-      <div class="tarjeta tarjeta-formulario">
-        <div class="campo">
-          <label>Nombre del cliente</label>
-          <input type="text" placeholder="Ej. Ana López">
-        </div>
-
-        <div class="campo">
-          <label>Número de páginas</label>
-          <input type="number" placeholder="Ej. 5">
-          <span class="nota">Cada página tiene un costo de $500 MXN.</span>
-        </div>
-
-        <div class="campo">
-          <label>Servicios adicionales</label>
-          
-          <div class="opcion-servicio">
-            <div>
-              <input type="checkbox" checked>
-              <label>Dominio</label>
-            </div>
-            <span class="precio">$350</span>
-          </div>
-
-          <div class="opcion-servicio">
-            <div>
-              <input type="checkbox" checked>
-              <label>Hosting</label>
-            </div>
-            <span class="precio">$1,200</span>
-          </div>
-
-          <div class="opcion-servicio">
-            <div>
-              <input type="checkbox">
-              <label>Base de datos</label>
-            </div>
-            <span class="precio">$800</span>
-          </div>
-        </div>
-
-        <div class="botones">
-          <button class="btn-azul">Calcular cotización</button>
-          <button class="btn-gris">Limpiar</button>
-        </div>
-      </div>
-
-      <!-- Derecha: Resultado -->
-      <div class="tarjeta tarjeta-resultado">
-        <span class="etiqueta-resultado">RESULTADO</span>
-        <h3 class="titulo-resultado">Aún no hay cotización</h3>
-        <p class="texto-resultado">Ingresa los datos del cliente y selecciona los servicios.</p>
-      </div>
+    <!-- Contenedor con Flexbox: Formulario + Aside -->
+    <div class="columnas-cotizador">
       
+      <!-- Tarjeta Izquierda: Formulario -->
+      <section class="tarjeta tarjeta-formulario">
+        <form id="quote-form">
+          <div class="campo">
+            <label for="nombre-cliente">Nombre del cliente</label>
+            <input type="text" name="nombre-cliente" id="nombre-cliente" placeholder="Ej. Ana López">
+          </div>
+
+          <div class="campo">
+            <label for="numero-pagina">Número de páginas</label>
+            <input type="number" name="numero-pagina" id="numero-pagina" placeholder="Ej. 5" min="0">
+            <small class="nota">Cada página tiene un costo de $500 MXN.</small>
+          </div>
+
+          <div class="campo extra-services">
+            <label class="titulo-seccion">Servicios adicionales</label>
+
+            <div class="option">
+              <div>
+                <input type="checkbox" id="dominio" name="dominio" data-precio="350">
+                <label for="dominio">Dominio</label>
+              </div>
+              <p class="price">$350</p>
+            </div>
+
+            <div class="option">
+              <div>
+                <input type="checkbox" id="hosting" name="hosting" data-precio="1200">
+                <label for="hosting">Hosting</label>
+              </div>
+              <p class="price">$1,200</p>
+            </div>
+
+            <div class="option">
+              <div>
+                <input type="checkbox" id="bd" name="bd" data-precio="800">
+                <label for="bd">Base de datos</label>
+              </div>
+              <p class="price">$800</p>
+            </div>
+
+            <div class="option">
+              <div>
+                <input type="checkbox" id="changes" name="changes" data-precio="2000">
+                <label for="changes">Cambios del dev</label>
+              </div>
+              <p class="price">$2,000</p>
+            </div>
+
+            <div class="option">
+              <div>
+                <input type="checkbox" id="seo" name="seo" data-precio="2000">
+                <label for="seo">SEO</label>
+              </div>
+              <p class="price">$2,000</p>
+            </div>
+          </div>
+
+          <div class="botones">
+            <button type="button" id="cotization-button" class="btn btn-azul">Calcular cotización</button>
+            <button type="button" id="reset-button" class="btn btn-gris">Limpiar</button>
+          </div>
+        </form>
+
+        <div class="total-box">
+          Subtotal servicios: $<span id="total">0</span> MXN
+        </div>
+      </section>
+
+      <!-- Tarjeta Derecha: Resultado -->
+      <aside class="tarjeta tarjeta-resultado">
+        <span class="subtitulo-etiqueta tag-resultado">RESULTADO</span>
+        <h2 id="result-title" class="titulo-resultado">Aún no hay cotización</h2>
+        <div id="result-body">
+          <p class="texto-resultado">Ingresa los datos del cliente y selecciona los servicios.</p>
+        </div>
+      </aside>
+
     </div>
-    
   </main>
 
+  <footer>
+    <p>2026 Derechos Reservados</p>
+  </footer>
+
+  <script>
+    // Elementos del Modal
+    const modal = document.querySelector(".window");
+    const closeWindow = document.querySelector("#window-close");
+    const okWindow = document.querySelector("#window-ok");
+    const modalTitle = document.querySelector("#modal-title");
+    const modalMessage = document.querySelector("#modal-message");
+
+    // Elementos del Cotizador
+    const clienteInput = document.querySelector("#nombre-cliente");
+    const paginasInput = document.querySelector("#numero-pagina");
+    const totalSpan = document.querySelector("#total");
+    const btnCalcular = document.querySelector("#cotization-button");
+    const btnLimpiar = document.querySelector("#reset-button");
+
+    const resultTitle = document.querySelector("#result-title");
+    const resultBody = document.querySelector("#result-body");
+
+    // Checkboxes de servicios
+    const checkboxes = document.querySelectorAll('.extra-services input[type="checkbox"]');
+
+    // Función para abrir/cerrar modal
+    function abrirModal(titulo, mensaje) {
+      modalTitle.textContent = titulo;
+      modalMessage.textContent = mensaje;
+      modal.classList.remove("not-show");
+    }
+
+    function cerrarModal() {
+      modal.classList.add("not-show");
+    }
+
+    closeWindow.addEventListener("click", cerrarModal);
+    okWindow.addEventListener("click", cerrarModal);
+
+    // Suma en vivo de checkboxes
+    function calcularSubtotalServicios() {
+      let subtotal = 0;
+      checkboxes.forEach(cb => {
+        if (cb.checked) {
+          subtotal += parseInt(cb.dataset.precio, 10);
+        }
+      });
+      totalSpan.textContent = subtotal;
+      return subtotal;
+    }
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener("change", calcularSubtotalServicios);
+    });
+
+    // Botón Calcular Cotización
+    btnCalcular.addEventListener("click", () => {
+      const nombre = clienteInput.value.trim();
+      const paginas = parseInt(paginasInput.value, 10) || 0;
+
+      if (!nombre) {
+        abrirModal("Datos incompletos", "Por favor ingresa el nombre del cliente para continuar.");
+        return;
+      }
+
+      const costoPaginas = paginas * 500;
+      const costoServicios = calcularSubtotalServicios();
+      const granTotal = costoPaginas + costoServicios;
+
+      // Actualiza panel derecho
+      resultTitle.textContent = `Cotización para ${nombre}`;
+      resultBody.innerHTML = `
+        <p class="texto-resultado"><strong>Páginas (${paginas}):</strong> $${costoPaginas} MXN</p>
+        <p class="texto-resultado"><strong>Servicios adicionales:</strong> $${costoServicios} MXN</p>
+        <hr style="margin: 12px 0; border: 0; border-top: 1px solid #cbd5e1;">
+        <p class="texto-resultado" style="font-size: 16px; color: #1e3a8a;"><strong>Total Estimado: $${granTotal} MXN</strong></p>
+      `;
+
+      abrirModal("Cotización generada", `Total calculado para ${nombre}: $${granTotal} MXN`);
+    });
+
+    // Botón Limpiar
+    btnLimpiar.addEventListener("click", () => {
+      document.querySelector("#quote-form").reset();
+      totalSpan.textContent = "0";
+      resultTitle.textContent = "Aún no hay cotización";
+      resultBody.innerHTML = `<p class="texto-resultado">Ingresa los datos del cliente y selecciona los servicios.</p>`;
+    });
+  </script>
 </body>
-    <script>
-        var window =document.querySelector('.window');
-        window.classList.add('.show');
-        //.remove('.show');
-        
-    </script>
 </html>
