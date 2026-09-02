@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <!-- Barra de Navegación -->
+  <!-- Barra de Navegacion -->
   <header>
     <nav class="menu-nav">
       <div class="logo-container">
@@ -50,6 +50,7 @@
   <main class="contenedor-principal">
     
     <div class="titles">
+      <button type="button" class="btn-abrir-texto" id="btn-abrir">Abrir</button>
       <span class="subtitulo-etiqueta">PROYECTO INTRODUCTORIO</span>
       <h1>Cotizador de sitio web</h1>
       <p class="descripcion">Completa el formulario para generar una cotización estimada.</p>
@@ -144,14 +145,13 @@
   </footer>
 
   <script>
-    // Elementos del Modal
     const modal = document.querySelector(".window");
     const closeWindow = document.querySelector("#window-close");
     const okWindow = document.querySelector("#window-ok");
     const modalTitle = document.querySelector("#modal-title");
     const modalMessage = document.querySelector("#modal-message");
+    const btnAbrir = document.querySelector("#btn-abrir");
 
-    // Elementos del Cotizador
     const clienteInput = document.querySelector("#nombre-cliente");
     const paginasInput = document.querySelector("#numero-pagina");
     const totalSpan = document.querySelector("#total");
@@ -161,10 +161,8 @@
     const resultTitle = document.querySelector("#result-title");
     const resultBody = document.querySelector("#result-body");
 
-    // Checkboxes de servicios
     const checkboxes = document.querySelectorAll('.extra-services input[type="checkbox"]');
 
-    // Función para abrir/cerrar modal
     function abrirModal(titulo, mensaje) {
       modalTitle.textContent = titulo;
       modalMessage.textContent = mensaje;
@@ -175,10 +173,13 @@
       modal.classList.add("not-show");
     }
 
+    btnAbrir.addEventListener("click", () => {
+      abrirModal("Información del sistema", "Esta es la ventana emergente del cotizador.");
+    });
+
     closeWindow.addEventListener("click", cerrarModal);
     okWindow.addEventListener("click", cerrarModal);
 
-    // Suma en vivo de checkboxes
     function calcularSubtotalServicios() {
       let subtotal = 0;
       checkboxes.forEach(cb => {
@@ -194,7 +195,6 @@
       cb.addEventListener("change", calcularSubtotalServicios);
     });
 
-    // Botón Calcular Cotización
     btnCalcular.addEventListener("click", () => {
       const nombre = clienteInput.value.trim();
       const paginas = parseInt(paginasInput.value, 10) || 0;
@@ -208,7 +208,6 @@
       const costoServicios = calcularSubtotalServicios();
       const granTotal = costoPaginas + costoServicios;
 
-      // Actualiza panel derecho
       resultTitle.textContent = `Cotización para ${nombre}`;
       resultBody.innerHTML = `
         <p class="texto-resultado"><strong>Páginas (${paginas}):</strong> $${costoPaginas} MXN</p>
@@ -220,7 +219,6 @@
       abrirModal("Cotización generada", `Total calculado para ${nombre}: $${granTotal} MXN`);
     });
 
-    // Botón Limpiar
     btnLimpiar.addEventListener("click", () => {
       document.querySelector("#quote-form").reset();
       totalSpan.textContent = "0";
