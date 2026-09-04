@@ -12,7 +12,6 @@
 </head>
 <body>
 
-  <!-- Barra de Navegacion -->
   <header>
     <nav class="menu-nav">
       <div class="logo-container">
@@ -28,7 +27,6 @@
     </nav>
   </header>
 
-  <!-- Ventana Modal -->
   <div class="window not-show">
     <div class="window-card">
       <div class="window-header">
@@ -40,13 +38,12 @@
         </div>
       </div>
       <div class="window-content">
-        <p id="modal-message">Mensaje del sistema</p>
+        <div id="modal-message">Mensaje del sistema</div>
         <button type="button" id="window-ok">OK</button>
       </div>
     </div>
   </div>
 
-  <!-- Contenido Principal -->
   <main class="contenedor-principal">
     
     <div class="titles">
@@ -56,10 +53,8 @@
       <p class="descripcion">Completa el formulario para generar una cotización estimada.</p>
     </div>
 
-    <!-- Contenedor con Flexbox: Formulario + Aside -->
     <div class="columnas-cotizador">
       
-      <!-- Tarjeta Izquierda: Formulario -->
       <section class="tarjeta tarjeta-formulario">
         <form id="quote-form">
           <div class="campo">
@@ -128,7 +123,6 @@
         </div>
       </section>
 
-      <!-- Tarjeta Derecha: Resultado -->
       <aside class="tarjeta tarjeta-resultado">
         <span class="subtitulo-etiqueta tag-resultado">RESULTADO</span>
         <h2 id="result-title" class="titulo-resultado">Aún no hay cotización</h2>
@@ -137,6 +131,14 @@
         </div>
       </aside>
 
+    </div>
+
+    <div class="5-bttns-aditional">
+      <button type="button" id="Boton-1" class="btn btn-azul">Botón 1</button>
+      <button type="button" id="Boton-2" class="btn btn-azul">Botón 2</button>
+      <button type="button" id="Boton-3" class="btn btn-azul">Botón 3</button>
+      <button type="button" id="Boton-4" class="btn btn-azul">Botón 4</button>
+      <button type="button" id="Boton-5" class="btn btn-azul">Botón 5</button>
     </div>
   </main>
 
@@ -162,25 +164,34 @@
     const resultBody = document.querySelector("#result-body");
 
     const checkboxes = document.querySelectorAll('.extra-services input[type="checkbox"]');
+    const boton1 = document.querySelector("#Boton-1");
 
-    function abrirModal(titulo, mensaje) 
-    {
+    // Usa innerHTML para permitir texto normal o etiquetas <img>
+    function abrirModal(titulo, contenidoHtml) {
       modalTitle.textContent = titulo;
-      modalMessage.textContent = mensaje;
+      modalMessage.innerHTML = contenidoHtml;
       modal.classList.remove("not-show");
     }
 
-    function cerrarModal() 
-    {
+    function cerrarModal() {
       modal.classList.add("not-show");
     }
 
     btnAbrir.addEventListener("click", () => {
-      abrirModal("Información del sistema", "Esta es la ventana emergente del cotizador.");
+      abrirModal("Información del sistema", "<p>Esta es la ventana emergente del cotizador.</p>");
     });
 
     closeWindow.addEventListener("click", cerrarModal);
     okWindow.addEventListener("click", cerrarModal);
+
+    // Botón 1 abre la ventana modal con la imagen
+    boton1.addEventListener("click", function() {
+      const url = "https://memes.memedroid.com/images/2026-03-27/69c664169c37e.webp";
+      abrirModal(
+        "Información del sistema", 
+        `<img src="${url}" alt="Meme" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px; border-radius: 6px;">`
+      );
+    });
 
     function calcularSubtotalServicios() {
       let subtotal = 0;
@@ -202,7 +213,7 @@
       const paginas = parseInt(paginasInput.value, 10) || 0;
 
       if (!nombre) {
-        abrirModal("Datos incompletos", "Por favor ingresa el nombre del cliente para continuar.");
+        abrirModal("Datos incompletos", "<p>Por favor ingresa el nombre del cliente para continuar.</p>");
         return;
       }
 
@@ -218,7 +229,7 @@
         <p class="texto-resultado" style="font-size: 16px; color: #1e3a8a;"><strong>Total Estimado: $${granTotal} MXN</strong></p>
       `;
 
-      abrirModal("Cotización generada", `Total calculado para ${nombre}: $${granTotal} MXN`);
+      abrirModal("Cotización generada", `<p>Total calculado para ${nombre}: $${granTotal} MXN</p>`);
     });
 
     btnLimpiar.addEventListener("click", () => {
