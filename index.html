@@ -163,13 +163,15 @@
 
     const checkboxes = document.querySelectorAll('.extra-services input[type="checkbox"]');
 
-    function abrirModal(titulo, mensaje) {
+    function abrirModal(titulo, mensaje) 
+    {
       modalTitle.textContent = titulo;
       modalMessage.textContent = mensaje;
       modal.classList.remove("not-show");
     }
 
-    function cerrarModal() {
+    function cerrarModal() 
+    {
       modal.classList.add("not-show");
     }
 
