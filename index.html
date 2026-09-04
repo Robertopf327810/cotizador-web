@@ -165,8 +165,11 @@
 
     const checkboxes = document.querySelectorAll('.extra-services input[type="checkbox"]');
     const boton1 = document.querySelector("#Boton-1");
+    const boton2 = document.querySelector("#Boton-2");
+    const boton3 = document.querySelector("#Boton-3");
+    const boton4 = document.querySelector("#Boton-4");
+    const boton5 = document.querySelector("#Boton-5");
 
-    // Usa innerHTML para permitir texto normal o etiquetas <img>
     function abrirModal(titulo, contenidoHtml) {
       modalTitle.textContent = titulo;
       modalMessage.innerHTML = contenidoHtml;
@@ -184,12 +187,48 @@
     closeWindow.addEventListener("click", cerrarModal);
     okWindow.addEventListener("click", cerrarModal);
 
-    // Botón 1 abre la ventana modal con la imagen
+    // Botón 1
     boton1.addEventListener("click", function() {
       const url = "https://memes.memedroid.com/images/2026-03-27/69c664169c37e.webp";
       abrirModal(
         "Información del sistema", 
-        `<img src="${url}" alt="Meme" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px; border-radius: 6px;">`
+        `<img src="${url}" alt="Meme 1" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px; border-radius: 6px;">`
+      );
+    });
+
+    // Botón 2
+    boton2.addEventListener("click", function() {
+      const url = "https://memes.memedroid.com/images/2026-06-23/6a3b24f2057a7.webp";
+      abrirModal(
+        "Información del sistema", 
+        `<img src="${url}" alt="Meme 2" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px; border-radius: 6px;">`
+      );
+    });
+
+    // Botón 3
+    boton3.addEventListener("click", function() {
+      const url = "https://memes.memedroid.com/images/2026-09-03/6a9a2ce93245d.webp";
+      abrirModal(
+        "Información del sistema", 
+        `<img src="${url}" alt="Meme 3" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px; border-radius: 6px;">`
+      );
+    });
+
+    // Botón 4
+    boton4.addEventListener("click", function() {
+      const url = "https://memes.memedroid.com/images/2026-09-03/6a996f3e5a36e.webp";
+      abrirModal(
+        "Información del sistema", 
+        `<img src="${url}" alt="Meme 4" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px; border-radius: 6px;">`
+      );
+    });
+
+    // Botón 5
+    boton5.addEventListener("click", function() {
+      const url = "https://memes.memedroid.com/images/2026-09-03/6a9953b58b5af.webp";
+      abrirModal(
+        "Información del sistema", 
+        `<img src="${url}" alt="Meme 5" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px; border-radius: 6px;">`
       );
     });
 

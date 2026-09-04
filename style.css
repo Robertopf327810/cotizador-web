@@ -180,7 +180,7 @@ header {
 .campo input[type="text"],
 .campo input[type="number"] {
   padding: 8px 12px;
-  background-color: #fbeee2; /* Fondo cálido que reemplaza el blanco del input */
+  background-color: #fbeee2;
   border: 1px solid #fdba74;
   border-radius: 6px;
   font-size: 14px;
@@ -233,7 +233,7 @@ header {
   color: #9a3412;
 }
 
-/* Botones */
+/* Botones principales del formulario */
 .botones {
   display: flex;
   flex-direction: column;
@@ -251,12 +251,14 @@ header {
   cursor: pointer;
 }
 
+.btn-azul,
 .btn-naranja {
   background-color: #ea580c;
   color: #ffffff;
   transition: background-color 0.2s ease;
 }
 
+.btn-azul:hover,
 .btn-naranja:hover {
   background-color: #c2410c;
 }
@@ -358,13 +360,73 @@ header {
   background-color: #c2410c;
 }
 
+/* Contenedor integrado para los 5 botones adicionales */
+[class*="5-bttns-aditional"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+  padding: 24px;
+  background-color: #fff8f3;
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.06);
+}
+
+/* Botones con estilo moderno tipo tarjeta */
+[class*="5-bttns-aditional"] .btn {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ea580c, #c2410c);
+  color: #ffffff;
+  border: 2px solid #fed7aa;
+  box-shadow: 0 4px 10px rgba(194, 65, 12, 0.25);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto hover suave */
+[class*="5-bttns-aditional"] .btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 16px rgba(194, 65, 12, 0.35);
+  background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+/* Formas individuales basadas en las referencias */
+#Boton-1 {
+  border-radius: 8px;
+}
+
+#Boton-2 {
+  border-radius: 28px;
+}
+
+#Boton-3 {
+  border-radius: 50%;
+}
+
+#Boton-4 {
+  border-radius: 14px 32px;
+}
+
+#Boton-5 {
+  border-radius: 0 40px;
+}
+
 /* Footer cálido */
 footer {
   text-align: center;
   padding: 20px;
   font-size: 12px;
-  color: #ffedd5 !important;              
-  background-color: #c2410c !important;   
+  color: #ffedd5 !important;
+  background-color: #c2410c !important;
   border-top: 2px solid #9a3412 !important;
   width: 100%;
 }
