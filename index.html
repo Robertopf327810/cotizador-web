@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cotizador de sitio web</title>
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
+  <!-- Barra de Navegación Azul Superior -->
+  <header class="header-azul">
     <nav class="menu-nav">
       <div class="logo-container">
         <h1>Cotizador</h1>
@@ -21,95 +21,135 @@
         <ul>
           <li><a href="#">Inicio</a></li>
           <li><a href="#">Servicios</a></li>
-          <li><a href="#"><span id="contact-link">Contacto</span></a></li>
+          <li><a href="#" id="contact-link">Contacto</a></li>
         </ul>
       </div>
     </nav>
   </header>
 
-  <div class="window not-show">
-    <div class="window-card">
-      <div class="window-header">
-        <div>
-          <p id="modal-title">Aviso</p>
+  <!-- Modal de Resultados y Avisos -->
+  <div id="modal-cotizacion" class="window not-show">
+    <div class="window-card modal-resultado-card">
+      <div class="modal-card-top">
+        <span class="subtitulo-etiqueta" id="modal-subtitulo-tag">RESULTADO</span>
+        <button type="button" class="btn-cerrar-simple" id="close-cotizacion">✕</button>
+      </div>
+      <h2 id="modal-cot-nombre" class="modal-titulo">Cotización para Cliente</h2>
+      <p id="modal-cot-nota" class="modal-subtexto">Esta cantidad es una estimación para fines académicos.</p>
+
+      <div class="desglose-tabla" id="desglose-tabla">
+        <div class="fila-desglose">
+          <span id="label-paginas">Páginas</span>
+          <span id="res-paginas">$0.00</span>
         </div>
-        <div>
-          <button type="button" id="window-close">X</button>
+        <div class="fila-desglose">
+          <span>Servicios</span>
+          <span id="res-servicios">$0.00</span>
+        </div>
+        <div class="fila-desglose fila-separador">
+          <span>Subtotal</span>
+          <span id="res-subtotal">$0.00</span>
+        </div>
+        <div class="fila-desglose text-descuento">
+          <span>Descuento (15%)</span>
+          <span id="res-descuento">-$0.00</span>
+        </div>
+        <div class="fila-desglose">
+          <span>IVA (16%)</span>
+          <span id="res-iva">$0.00</span>
+        </div>
+        <div class="fila-desglose fila-total">
+          <strong>Total</strong>
+          <strong id="res-total">$0.00</strong>
         </div>
       </div>
-      <div class="window-content">
-        <div id="modal-message">Mensaje del sistema</div>
-        <button type="button" id="window-ok">OK</button>
-      </div>
+      <button type="button" class="btn btn-azul" id="ok-cotizacion" style="margin-top: 16px;">OK</button>
     </div>
   </div>
 
+  <!-- 5 Ventanas Modales de la Tarea -->
+  <div id="modal-1" class="window not-show">
+    <div class="window-card modal-demo">
+      <div class="window-header"><span>Ventana 1 - Flexbox</span><button type="button" class="window-close" data-modal="modal-1">✕</button></div>
+      <div class="window-content"><img src="https://memes.memedroid.com/images/2026-03-27/69c664169c37e.webp" class="modal-img"><button type="button" class="btn btn-azul window-ok" data-modal="modal-1">OK</button></div>
+    </div>
+  </div>
+
+  <div id="modal-2" class="window not-show">
+    <div class="window-card modal-demo">
+      <div class="window-header"><span>Ventana 2 - CSS Grid</span><button type="button" class="window-close" data-modal="modal-2">✕</button></div>
+      <div class="window-content"><img src="https://memes.memedroid.com/images/2026-06-23/6a3b24f2057a7.webp" class="modal-img"><button type="button" class="btn btn-azul window-ok" data-modal="modal-2">OK</button></div>
+    </div>
+  </div>
+
+  <div id="modal-3" class="window not-show">
+    <div class="window-card modal-demo">
+      <div class="window-header"><span>Ventana 3 - Margin Auto</span><button type="button" class="window-close" data-modal="modal-3">✕</button></div>
+      <div class="window-content"><img src="https://memes.memedroid.com/images/2026-09-03/6a9a2ce93245d.webp" class="modal-img"><button type="button" class="btn btn-azul window-ok" data-modal="modal-3">OK</button></div>
+    </div>
+  </div>
+
+  <div id="modal-4" class="window not-show">
+    <div class="window-card modal-demo">
+      <div class="window-header"><span>Ventana 4 - Absolute</span><button type="button" class="window-close" data-modal="modal-4">✕</button></div>
+      <div class="window-content"><img src="https://memes.memedroid.com/images/2026-09-03/6a996f3e5a36e.webp" class="modal-img"><button type="button" class="btn btn-azul window-ok" data-modal="modal-4">OK</button></div>
+    </div>
+  </div>
+
+  <div id="modal-5" class="window not-show">
+    <div class="window-card modal-demo">
+      <div class="window-header"><span>Ventana 5 - Place-Items</span><button type="button" class="window-close" data-modal="modal-5">✕</button></div>
+      <div class="window-content"><img src="https://memes.memedroid.com/images/2026-09-03/6a9953b58b5af.webp" class="modal-img"><button type="button" class="btn btn-azul window-ok" data-modal="modal-5">OK</button></div>
+    </div>
+  </div>
+
+  <!-- Contenido Principal -->
   <main class="contenedor-principal">
-    
     <div class="titles">
-      <button type="button" class="btn-abrir-texto" id="btn-abrir">Abrir</button>
       <span class="subtitulo-etiqueta">PROYECTO INTRODUCTORIO</span>
       <h1>Cotizador de sitio web</h1>
       <p class="descripcion">Completa el formulario para generar una cotización estimada.</p>
     </div>
 
     <div class="columnas-cotizador">
-      
+      <!-- Formulario -->
       <section class="tarjeta tarjeta-formulario">
         <form id="quote-form">
           <div class="campo">
-            <label for="nombre-cliente">Nombre del cliente</label>
-            <input type="text" name="nombre-cliente" id="nombre-cliente" placeholder="Ej. Ana López">
+            <label for="nombre-cliente">Nombre del cliente *</label>
+            <input type="text" id="nombre-cliente" placeholder="Ej. Nestor">
           </div>
 
           <div class="campo">
-            <label for="numero-pagina">Número de páginas</label>
-            <input type="number" name="numero-pagina" id="numero-pagina" placeholder="Ej. 5" min="0">
-            <small class="nota">Cada página tiene un costo de $500 MXN.</small>
+            <label for="numero-pagina">Número de páginas *</label>
+            <input type="number" id="numero-pagina" placeholder="3" min="1">
+            <small class="nota">1 a 3 páginas: $5,000 base. Páginas extra: $2,000 c/u.</small>
           </div>
 
           <div class="campo extra-services">
-            <label class="titulo-seccion">Servicios adicionales</label>
-
+            <label class="titulo-seccion">Servicios adicionales * <span class="nota">(Selecciona al menos 1)</span></label>
             <div class="option">
-              <div>
-                <input type="checkbox" id="dominio" name="dominio" data-precio="350">
-                <label for="dominio">Dominio</label>
-              </div>
-              <p class="price">$350</p>
+              <label><input type="checkbox" id="hosting" data-precio="1900"> Hosting</label>
+              <span class="price">$1,900</span>
             </div>
-
             <div class="option">
-              <div>
-                <input type="checkbox" id="hosting" name="hosting" data-precio="1200">
-                <label for="hosting">Hosting</label>
-              </div>
-              <p class="price">$1,200</p>
+              <label><input type="checkbox" id="dominio" data-precio="600"> Dominio</label>
+              <span class="price">$600</span>
             </div>
-
             <div class="option">
-              <div>
-                <input type="checkbox" id="bd" name="bd" data-precio="800">
-                <label for="bd">Base de datos</label>
-              </div>
-              <p class="price">$800</p>
+              <label><input type="checkbox" id="seo" data-precio="2000"> SEO</label>
+              <span class="price">$2,000</span>
             </div>
-
             <div class="option">
-              <div>
-                <input type="checkbox" id="changes" name="changes" data-precio="2000">
-                <label for="changes">Cambios del dev</label>
-              </div>
-              <p class="price">$2,000</p>
+              <label><input type="checkbox" id="bd-cms" data-precio="7000"> BD / CMS</label>
+              <span class="price">$7,000</span>
             </div>
+          </div>
 
-            <div class="option">
-              <div>
-                <input type="checkbox" id="seo" name="seo" data-precio="2000">
-                <label for="seo">SEO</label>
-              </div>
-              <p class="price">$2,000</p>
-            </div>
+          <div class="campo">
+            <label for="cupon-descuento">Cupón de descuento</label>
+            <input type="text" id="cupon-descuento" placeholder="SEPTIEMBRE">
+            <small class="nota">Ingresa "SEPTIEMBRE" para obtener 15% de descuento.</small>
           </div>
 
           <div class="botones">
@@ -117,165 +157,192 @@
             <button type="button" id="reset-button" class="btn btn-gris">Limpiar</button>
           </div>
         </form>
-
-        <div class="total-box">
-          Subtotal servicios: $<span id="total">0</span> MXN
-        </div>
       </section>
 
+      <!-- Tarjeta Derecha: Vista Previa con la nueva imagen -->
       <aside class="tarjeta tarjeta-resultado">
-        <span class="subtitulo-etiqueta tag-resultado">RESULTADO</span>
-        <h2 id="result-title" class="titulo-resultado">Aún no hay cotización</h2>
-        <div id="result-body">
-          <p class="texto-resultado">Ingresa los datos del cliente y selecciona los servicios.</p>
+        <span class="subtitulo-etiqueta">VISTA PREVIA</span>
+        <div class="browser-mockup">
+          <div class="browser-bar">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="browser-content">
+            <img src="https://imgs.search.brave.com/n2m5eTU3C9HfBxO3C7Vwr9vhe1WzwfD2ICewku-_BRY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzJmLzQ0/LzU2LzJmNDQ1NmJj/NTk0MWU2NTQ2ZWRh/MTdhNTM5YWYwYTcw/LmpwZw" alt="Vista previa del sitio web" class="vista-previa-img">
+          </div>
         </div>
+        <p class="texto-vista-previa">Sitio web. Completa los datos y calcula tu cotización para ver el resultado.</p>
       </aside>
-
     </div>
 
-    <div class="5-bttns-aditional">
-      <button type="button" id="Boton-1" class="btn btn-azul">Botón 1</button>
-      <button type="button" id="Boton-2" class="btn btn-azul">Botón 2</button>
-      <button type="button" id="Boton-3" class="btn btn-azul">Botón 3</button>
-      <button type="button" id="Boton-4" class="btn btn-azul">Botón 4</button>
-      <button type="button" id="Boton-5" class="btn btn-azul">Botón 5</button>
-    </div>
+    <!-- Sección Memes -->
+    <section class="seccion-centrados">
+      <h2 class="titulo-memes">Memes</h2>
+      <div class="demo-grid">
+        <div class="caja-centrado centro-flex"><button type="button" id="Boton-1" class="btn-demo">Flexbox</button></div>
+        <div class="caja-centrado centro-grid"><button type="button" id="Boton-2" class="btn-demo">CSS Grid</button></div>
+        <div class="caja-centrado centro-margin"><button type="button" id="Boton-3" class="btn-demo">Margin</button></div>
+        <div class="caja-centrado centro-absolute"><button type="button" id="Boton-4" class="btn-demo">Absolute</button></div>
+        <div class="caja-centrado centro-place"><button type="button" id="Boton-5" class="btn-demo">Place-Items</button></div>
+      </div>
+    </section>
+
+    <!-- Footer Derechos Reservados -->
+    <footer>
+      <p>© 2026 Todos los derechos reservados.</p>
+    </footer>
   </main>
 
-  <footer>
-    <p>2026 Derechos Reservados</p>
-  </footer>
-
   <script>
-    const modal = document.querySelector(".window");
-    const closeWindow = document.querySelector("#window-close");
-    const okWindow = document.querySelector("#window-ok");
-    const modalTitle = document.querySelector("#modal-title");
-    const modalMessage = document.querySelector("#modal-message");
-    const btnAbrir = document.querySelector("#btn-abrir");
+    const formatoMoneda = (num) => `$${num.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-    const clienteInput = document.querySelector("#nombre-cliente");
-    const paginasInput = document.querySelector("#numero-pagina");
-    const totalSpan = document.querySelector("#total");
-    const btnCalcular = document.querySelector("#cotization-button");
-    const btnLimpiar = document.querySelector("#reset-button");
+    const openModal = (id) => document.getElementById(id)?.classList.remove("not-show");
+    const closeModal = (id) => document.getElementById(id)?.classList.add("not-show");
 
-    const resultTitle = document.querySelector("#result-title");
-    const resultBody = document.querySelector("#result-body");
+    // Abrir 5 ventanas de la tarea
+    document.getElementById("Boton-1").addEventListener("click", () => openModal("modal-1"));
+    document.getElementById("Boton-2").addEventListener("click", () => openModal("modal-2"));
+    document.getElementById("Boton-3").addEventListener("click", () => openModal("modal-3"));
+    document.getElementById("Boton-4").addEventListener("click", () => openModal("modal-4"));
+    document.getElementById("Boton-5").addEventListener("click", () => openModal("modal-5"));
 
+    // Cerrar ventanas emergentes
+    document.querySelectorAll(".window-close, .window-ok").forEach(btn => {
+      btn.addEventListener("click", () => closeModal(btn.dataset.modal));
+    });
+
+    document.getElementById("close-cotizacion").addEventListener("click", () => closeModal("modal-cotizacion"));
+    document.getElementById("ok-cotizacion").addEventListener("click", () => closeModal("modal-cotizacion"));
+
+    // Referencias
+    const clienteInput = document.getElementById("nombre-cliente");
+    const paginasInput = document.getElementById("numero-pagina");
+    const cuponInput = document.getElementById("cupon-descuento");
     const checkboxes = document.querySelectorAll('.extra-services input[type="checkbox"]');
-    const boton1 = document.querySelector("#Boton-1");
-    const boton2 = document.querySelector("#Boton-2");
-    const boton3 = document.querySelector("#Boton-3");
-    const boton4 = document.querySelector("#Boton-4");
-    const boton5 = document.querySelector("#Boton-5");
+    const desgloseTabla = document.getElementById("desglose-tabla");
+    const modalTag = document.getElementById("modal-subtitulo-tag");
 
-    function abrirModal(titulo, contenidoHtml) {
-      modalTitle.textContent = titulo;
-      modalMessage.innerHTML = contenidoHtml;
-      modal.classList.remove("not-show");
+    clienteInput.addEventListener("input", () => {
+      if (clienteInput.value.trim().length > 0) clienteInput.style.borderColor = "";
+    });
+
+    paginasInput.addEventListener("input", () => {
+      if (paginasInput.value.trim().length > 0 && parseInt(paginasInput.value, 10) > 0) {
+        paginasInput.style.borderColor = "";
+      }
+    });
+
+    cuponInput.addEventListener("input", () => {
+      cuponInput.style.borderColor = "";
+    });
+
+    function mostrarModalError(inputElement, titulo, mensaje) {
+      if (inputElement) {
+        inputElement.focus();
+        inputElement.style.borderColor = "#ef4444";
+      }
+      modalTag.textContent = "ERROR";
+      modalTag.style.color = "#ef4444";
+      document.getElementById("modal-cot-nombre").textContent = titulo;
+      document.getElementById("modal-cot-nota").textContent = mensaje;
+      desgloseTabla.style.display = "none";
+
+      openModal("modal-cotizacion");
     }
 
-    function cerrarModal() {
-      modal.classList.add("not-show");
-    }
+    // Calcular cotización
+    document.getElementById("cotization-button").addEventListener("click", () => {
+      const nombre = clienteInput.value.trim();
+      const paginasTexto = paginasInput.value.trim();
+      const paginas = parseInt(paginasTexto, 10);
+      const cuponTexto = cuponInput.value.trim();
 
-    btnAbrir.addEventListener("click", () => {
-      abrirModal("Información del sistema", "<p>Esta es la ventana emergente del cotizador.</p>");
-    });
-
-    closeWindow.addEventListener("click", cerrarModal);
-    okWindow.addEventListener("click", cerrarModal);
-
-    // Botón 1
-    boton1.addEventListener("click", function() {
-      const url = "https://memes.memedroid.com/images/2026-03-27/69c664169c37e.webp";
-      abrirModal(
-        "Información del sistema", 
-        `<img src="${url}" alt="Meme 1" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px; border-radius: 6px;">`
-      );
-    });
-
-    // Botón 2
-    boton2.addEventListener("click", function() {
-      const url = "https://memes.memedroid.com/images/2026-06-23/6a3b24f2057a7.webp";
-      abrirModal(
-        "Información del sistema", 
-        `<img src="${url}" alt="Meme 2" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px; border-radius: 6px;">`
-      );
-    });
-
-    // Botón 3
-    boton3.addEventListener("click", function() {
-      const url = "https://memes.memedroid.com/images/2026-09-03/6a9a2ce93245d.webp";
-      abrirModal(
-        "Información del sistema", 
-        `<img src="${url}" alt="Meme 3" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px; border-radius: 6px;">`
-      );
-    });
-
-    // Botón 4
-    boton4.addEventListener("click", function() {
-      const url = "https://memes.memedroid.com/images/2026-09-03/6a996f3e5a36e.webp";
-      abrirModal(
-        "Información del sistema", 
-        `<img src="${url}" alt="Meme 4" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px; border-radius: 6px;">`
-      );
-    });
-
-    // Botón 5
-    boton5.addEventListener("click", function() {
-      const url = "https://memes.memedroid.com/images/2026-09-03/6a9953b58b5af.webp";
-      abrirModal(
-        "Información del sistema", 
-        `<img src="${url}" alt="Meme 5" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px; border-radius: 6px;">`
-      );
-    });
-
-    function calcularSubtotalServicios() {
-      let subtotal = 0;
+      let serviciosSeleccionados = 0;
+      let costoServicios = 0;
       checkboxes.forEach(cb => {
         if (cb.checked) {
-          subtotal += parseInt(cb.dataset.precio, 10);
+          serviciosSeleccionados++;
+          costoServicios += parseInt(cb.dataset.precio, 10);
         }
       });
-      totalSpan.textContent = subtotal;
-      return subtotal;
-    }
 
-    checkboxes.forEach(cb => {
-      cb.addEventListener("change", calcularSubtotalServicios);
-    });
-
-    btnCalcular.addEventListener("click", () => {
-      const nombre = clienteInput.value.trim();
-      const paginas = parseInt(paginasInput.value, 10) || 0;
-
-      if (!nombre) {
-        abrirModal("Datos incompletos", "<p>Por favor ingresa el nombre del cliente para continuar.</p>");
+      // 1. Formulario vacío
+      if (!nombre && !paginasTexto && serviciosSeleccionados === 0 && !cuponTexto) {
+        mostrarModalError(clienteInput, "Formulario vacío", "No has seleccionado nada. Por favor ingresa los datos para cotizar.");
         return;
       }
 
-      const costoPaginas = paginas * 500;
-      const costoServicios = calcularSubtotalServicios();
-      const granTotal = costoPaginas + costoServicios;
+      // 2. Campos obligatorios mínimos
+      if (!nombre) {
+        mostrarModalError(clienteInput, "Campo obligatorio", "Debes ingresar el nombre del cliente.");
+        return;
+      }
 
-      resultTitle.textContent = `Cotización para ${nombre}`;
-      resultBody.innerHTML = `
-        <p class="texto-resultado"><strong>Páginas (${paginas}):</strong> $${costoPaginas} MXN</p>
-        <p class="texto-resultado"><strong>Servicios adicionales:</strong> $${costoServicios} MXN</p>
-        <hr style="margin: 12px 0; border: 0; border-top: 1px solid #cbd5e1;">
-        <p class="texto-resultado" style="font-size: 16px; color: #1e3a8a;"><strong>Total Estimado: $${granTotal} MXN</strong></p>
-      `;
+      if (!paginasTexto || isNaN(paginas) || paginas <= 0) {
+        mostrarModalError(paginasInput, "Campo obligatorio", "Debes ingresar un número válido de páginas (mínimo 1).");
+        return;
+      }
 
-      abrirModal("Cotización generada", `<p>Total calculado para ${nombre}: $${granTotal} MXN</p>`);
+      if (serviciosSeleccionados === 0) {
+        mostrarModalError(null, "Servicio requerido", "Debes seleccionar al menos un servicio adicional para continuar.");
+        return;
+      }
+
+      // 3. Cupón no válido
+      let aplicaDescuento = false;
+      if (cuponTexto.length > 0) {
+        const cuponNormalizado = cuponTexto.toLowerCase();
+        if (cuponNormalizado === "septiembre") {
+          aplicaDescuento = true;
+        } else {
+          mostrarModalError(cuponInput, "Cupón no válido", `El cupón "${cuponTexto}" no existe o ha expirado. Verifica el código.`);
+          return;
+        }
+      }
+
+      clienteInput.style.borderColor = "";
+      paginasInput.style.borderColor = "";
+      cuponInput.style.borderColor = "";
+      modalTag.textContent = "RESULTADO";
+      modalTag.style.color = "#2563eb";
+      desgloseTabla.style.display = "flex";
+
+      // 4. Tarifas de páginas (1 a 3 = $5,000 | extras = $2,000 c/u)
+      let costoPaginas = 0;
+      if (paginas <= 3) {
+        costoPaginas = 5000;
+      } else {
+        costoPaginas = 5000 + ((paginas - 3) * 2000);
+      }
+
+      const subtotal = costoPaginas + costoServicios;
+      const descuento = aplicaDescuento ? (subtotal * 0.15) : 0;
+      const subtotalConDescuento = subtotal - descuento;
+      const iva = subtotalConDescuento * 0.16;
+      const total = subtotalConDescuento + iva;
+
+      document.getElementById("modal-cot-nombre").textContent = `Cotización para ${nombre}`;
+      document.getElementById("modal-cot-nota").textContent = aplicaDescuento 
+        ? "Esta cantidad es una estimación para fines académicos. Cupón SEPTIEMBRE (15%) aplicado."
+        : "Esta cantidad es una estimación para fines académicos.";
+
+      document.getElementById("label-paginas").textContent = `Páginas (${paginas})`;
+      document.getElementById("res-paginas").textContent = formatoMoneda(costoPaginas);
+      document.getElementById("res-servicios").textContent = formatoMoneda(costoServicios);
+      document.getElementById("res-subtotal").textContent = formatoMoneda(subtotal);
+      document.getElementById("res-descuento").textContent = aplicaDescuento ? `-${formatoMoneda(descuento)}` : "$0.00";
+      document.getElementById("res-iva").textContent = formatoMoneda(iva);
+      document.getElementById("res-total").textContent = formatoMoneda(total);
+
+      openModal("modal-cotizacion");
     });
 
-    btnLimpiar.addEventListener("click", () => {
-      document.querySelector("#quote-form").reset();
-      totalSpan.textContent = "0";
-      resultTitle.textContent = "Aún no hay cotización";
-      resultBody.innerHTML = `<p class="texto-resultado">Ingresa los datos del cliente y selecciona los servicios.</p>`;
+    document.getElementById("reset-button").addEventListener("click", () => {
+      document.getElementById("quote-form").reset();
+      clienteInput.style.borderColor = "";
+      paginasInput.style.borderColor = "";
+      cuponInput.style.borderColor = "";
     });
   </script>
 </body>
